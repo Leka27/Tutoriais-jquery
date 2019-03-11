@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Jquery Crash Course Treversy - Effects and Animations</title>
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>	
+		<style type="text/css">
+			body{
+				font-size: 17px;
+				font-family: arial;
+				background:#f4f4f4;
+				line-height: 1.5em;
+			}
+			header{
+				background: #333;
+				color: #fff;
+				padding: 20px;
+				text-align: center;
+				border-bottom: 4px #000 solid;
+				margin-bottom: 10px;
+			}
+			#container{
+				width: 90%;
+				margin: auto;
+				padding: 10px;
+			}
+			.myClass{
+				color:blue;
+				background: black;
+			}
+			#box{
+				background: #333;
+				color: #fff;
+				width: 450px;
+				height: 90px;
+				padding: 40px;
+				text-align: center;
+			}
+			#box2{
+				background: red;
+				color: #fff;
+				width: 100px;
+				height: 100px;
+				padding: 5px;
+				position: relative;;
+			}
+
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Jquery Crash Course</h1>
+		</header>
+		<div id="container">
+			<button id="btn1">Fade Out</button>
+			<button id="btn2">Fade In</button>
+			<button id="btn3">Fade Toggle</button>
+			<hr>
+			<button id="btnU">Slide Up</button>
+			<button id="btnD">Slide Down</button>
+			<button id="btnT">Slide Toggle</button>
+			<button id="btnStop">Stop</button>
+			<hr>
+			<div id="box"><h1>I'm a box</h1></div>
+			<hr>
+			<button id="btnL">Move Left</button>
+			<button id="btnR">Move Right</button>
+			<button id="btnA">Move Around</button>
+			<hr>
+			<div id="box2"><h1></h1></div>
+		</div>
+
+		<script>
+			//below: it will only load the jquery after the page is all loaded
+			$(document).ready(function(){
+
+				//You can use the events for animation passing as a parameter the velocity you want it to go fast, slow or passing the milliseconds
+
+				//FADE IN, FADE OUT, FADE TOGGLE
+				// $('#btn1').click(function(){
+				// 	$('#box').fadeOut('fast');
+				// });
+				// $('#btn1').click(function(){
+				// 	$('#box').fadeOut(3000);
+				// });
+				// $('#btn2').click(function(){
+				// 	$('#box').fadeIn();
+				// });
+
+				// //Or you can pass as a parameter something to be done when the event ends, in this case changes the text of the button
+				// $('#btn1').click(function(){
+				// 	$('#box').fadeOut(3000,function(){
+				// 		$('#btn1').text('Its Gone');
+				// 	});
+				// });
+
+				// $('#btn3').click(function(){
+				// 	$('#box').fadeToggle(1000);
+				// });
+
+				//SLIDE UP, SLIDE DOWN AND SLIDE TOGGLE
+				$('#btnU').click(function(){
+					$('#box').slideUp(1000);
+				});
+
+				$('#btnD').click(function(){
+					$('#box').slideDown(1000);
+				});
+
+				$('#btnT').click(function(){
+					$('#box').slideToggle(1000);
+				});
+
+				//stop an animation
+				$('#btnStop').click(function(){
+					$('#box').stop();
+				});
+
+				//ANIMATE
+				//MOVE
+				//Pass as an object the position, or css properties you want your animation to do
+				$('#btnR').click(function(){
+					$('#box2').animate({
+						left:400,
+						height:'300px',
+						width:'300px',
+						opacity:'0.5'
+					});
+				});
+
+				$('#btnL').click(function(){
+					$('#box2').animate({
+						left:0,
+						height:'100px',
+						width:'100px',
+						opacity:'1'
+					});
+				});
+
+				//you can also do multiple animations at once
+				$('#btnA').click(function(){
+					var box = $('#box2');
+					box.animate({
+						left:300
+					});
+					box.animate({
+						top:300
+					});
+					box.animate({
+						top:300,
+						left:0
+					});
+					box.animate({
+						left:0,
+						top:0
+					});
+				});
+
+
+
+
+			});
+		</script>
+	</body>
+</html>

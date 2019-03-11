@@ -1,0 +1,24 @@
+When working with ajax is a good practice to install node.js and npm(server)
+
+-Download node.js from the website:
+	https://nodejs.org/en/
+
+-After enter CMD windows and run the comands:
+	1)node -v
+	2)npm -v
+	3)npm install live-server -g 		(to make it global and run anywhere)
+	4)enter your folder through the cmd
+		-cd /downloads/anotações...
+	5)after that the server will be running, and you can open your html doc on your chrome( or other) and star coding
+	6)Mine open on the link http://127.0.0.1:8080/indexAjax.html
+-You can also use XAMPP
+
+-RUN 4 5 AND 6 WHEN NECESSARY TO CODE
+
+-----------------------------------
+-Allows you to make requests behind the scenes without refreshing the page
+you can just update certain parts of the app
+
+-API to use as a test
+https://jsonplaceholder.typicode.com
+free API to work with

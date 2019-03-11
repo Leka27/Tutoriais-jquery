@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Jquery Crash Course Treversy - Events</title>
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>	
+		<style type="text/css">
+			body{
+				font-size: 17px;
+				font-family: arial;
+				background:#f4f4f4;
+				line-height: 1.5em;
+			}
+			header{
+				background: #333;
+				color: #fff;
+				padding: 20px;
+				text-align: center;
+				border-bottom: 4px #000 solid;
+				margin-bottom: 10px;
+			}
+			#container{
+				width: 90%;
+				margin: auto;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Jquery Crash Course</h1>
+		</header>
+		<div id="container">
+			<h1>Mouse Events</h1>
+			<button id="btn1" class="btnClass">Button 1</button>
+			<button id="btn2">Button 2</button>
+			<!-- <p class="para1"> Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something</p> -->
+			<!-- <h1 id="Coords"></h1> -->
+
+			<hr>
+			<form id="form">
+				<label>Name:</label>
+				<input type="text" name="name" id="name">
+				<br>
+
+				<label>Email:</label>
+				<input type="text" name="emial" id="email">
+				<br>
+
+				<label>Gender:</label>
+				<select name="gender" id="gender">
+					<option value="m">Male</option>
+					<option value="f">Female</option>
+				</select> 
+				<br>
+				<input type="submit" name="Submit">
+			</form>
+		</div>
+
+		<script>
+			//the javascript is better to put on the end of the page
+			//because some functions might not work if the script is on the beginning of the page. one alternative is using the function below to make sure the events or functions on javascript only run when the document is ready(the page)
+			$(document).ready(function(){
+				//you can use the short version declaring the event(click) directly or you can use the method on calling the click event
+
+				//Click event on button one
+				// $('#btn1').click(function(){
+				// 	alert('Hello I am button one.');
+				// });
+
+				// //might be faster this way milliseconds
+				// $('#btn1').on('click',function(){
+				// 	alert('Hello I am button one.');					
+				// });
+
+				//when i click button one hide p and button two show
+				//method toggle hide and show something using the same button
+				// $('#btn1').click(function(){
+				// 	//$('.para1').hide();
+				// 	$('.para1').toggle();
+				// });
+				// $('#btn2').click(function(){
+				// 	$('.para1').show();
+				// });
+
+				//other events
+				//double click
+				// $('#btn1').dblclick(function(){
+				// 	$('.para1').toggle();
+				// });
+
+				// //hover(is not an actual event) and because of that the on version doesn't work
+				//is just a short version of syntax for mouseenter and mouseleave
+				// $('#btn1').hover(function(){
+				// 	$('.para1').toggle();
+				// });
+				// $('#btn2').on('hover',function(){
+				// 	$('.para1').toggle();	
+				// });
+
+				// //mouse enter and mouse leave
+				// $('#btn2').on('mouseenter',function(){
+				// 	$('.para1').toggle();	
+				// });
+				// $('#btn2').on('mouseleave',function(){
+				// 	$('.para1').toggle();	
+				// });
+
+				//mouse move
+				// $('#btn2').on('mouseup',function(){
+				// 	$('.para1').toggle();	
+				// });	
+
+				// //mouse up and mouse down
+				// $('#btn2').on('mousedown',function(){
+				// 	$('.para1').toggle();	
+				// });	
+
+				//passing as a parameter e and the currentTarget you can fetch various caracteristics about the button
+				//open the console F12 to see what you can get
+				$('#btn1').click(function(e){
+				// 	// alert(e.currentTarge.id);
+				// 	// alert(e.currentTarget.innerHTML);
+				// 	alert(e.currentTarget.className);
+				});
+
+				//Fetching the whole document, use can use the function below to get the position of the mouse on the page
+				// $(document).on('mousemove',function(e){
+				// 	console.log('Coords: Y: '+e.clientY+'  X:'+e.clientX);				
+				// });
+
+
+				//Show on the h1 tag created the coordinates of the mouse on the page
+				// $(document).on('mousemove',function(e){
+				// 	$('#Coords').html('Coords: Y: '+e.clientY+'  X:'+e.clientX);				
+				// });	
+
+
+				//FORM EVENTS
+				//Focus:action when you click inside of something
+				//the function below changes the color of the input box that was clicked to pink
+				// $('input').focus(function(){
+				// 	// alert("focus");
+				// 	$(this).css('background','pink');
+				// });
+
+				// //Blur: something happens when you click outside of the box
+				// $('input').blur(function(){
+				// 	// alert("focus");
+				// 	$(this).css('background','#fff');
+				// });
+
+				//function below fetch what is being written in the inpur box
+				//good to be used on the search boxes
+				//action happens when a key from the keyboard is being released
+				// $('input').keyup(function(e){
+				// 	console.log(e.target.value);
+				// });
+
+				//something happen when you change something
+				// $('select#gender').change(function(e){
+				// 	alert('Changed');
+				// 	alert(e.target.value);
+				// });
+
+				//submit event
+				//preventDefault cancel an event
+				//if i wnat to get the value of an input text as i submit use the function below
+				// $('form').submit(function(e){
+				// 	e.preventDefault();
+				// 	var name = $('input#name').val();
+				// 	console.log(name);
+				// });
+
+			});
+			
+		</script>
+	</body>
+</html>

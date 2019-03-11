@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Jquery Crash Course Treversy - DOM Manipulation</title>
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>	
+		<style type="text/css">
+			body{
+				font-size: 17px;
+				font-family: arial;
+				background:#f4f4f4;
+				line-height: 1.5em;
+			}
+			header{
+				background: #333;
+				color: #fff;
+				padding: 20px;
+				text-align: center;
+				border-bottom: 4px #000 solid;
+				margin-bottom: 10px;
+			}
+			#container{
+				width: 90%;
+				margin: auto;
+				padding: 10px;
+			}
+			.myClass{
+				color:blue;
+				background: black;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Jquery Crash Course</h1>
+		</header>
+		<div id="container">
+			<button id="btn1">Button 1</button>
+			<p class="para1">This is a paragraph 1</p>
+			<p class="para2">This is a paragraph 2</p>
+			<div id="myDiv"></div>
+			<input type="text" name="campo" id="item">
+			<ul id="list">
+				<li>List 1</li>
+				<li>List 2</li>
+				<li>List 3</li>
+				<li>List 4</li>
+			</ul>
+			<a href="http://google.com.br">Google</a>
+			<ul id="array">
+				
+			</ul>
+		</div>
+
+		<script>
+			//below: it will only load the jquery after the page is all loaded
+			$(document).ready(function(){
+				//use this to use one css property at a time
+				// $('p.para1').css('color','red');
+
+				//use this to use multiples css properties at the same time, use it as if i was an object
+				// $('p.para1').css({color:'red',background:'#ccc'});
+				// //to add or remove a class to and html tag
+				// $('p.para2').addClass('myClass');
+				// $('p.para2').removeClass('myClass');
+
+				//with the event below each time you click on the button the class will be added or removed
+				// $('#btn1').click(function(){
+				// 	$('p.para2').toggleClass('myClass');
+				// });
+
+				//adding and changing content within the DOM
+				//text: just add a text
+				//html: text eith html tags
+				// $('#myDiv').text('Hello World');
+				// $('#myDiv').html('<h3>Hello World</h3>');
+				// alert($('#myDiv').text());
+
+				//append and prepend - insert html to an html existing to the beginning or the end of the html
+				// $('ul').append('<li>Append list item</li>');
+				// $('ul').prepend('<li>Append list item</li>');
+
+				// //adding one html to another already existing
+				// $('.para1').appendTo('.para2');
+				// $('.para1').prependTo('.para2');
+
+				// //with before or after you can put stuff outside of the html chosen
+				// $('ul').before('<h4>Hello</h4>');
+				// $('ul').after('<h4>Hello</h4>');
+
+				// //takes out all the elements of the html
+				// $('ul').empty();
+
+				// //eliminates the html inside the element
+				// $('ul').detach();
+
+				//adding an attribute to an html or catching an attr from an html tag
+				// $('a').attr('target','_blank');
+				// // alert($('a').attr('href'));
+
+				// //you can also remove an attribute from an html tag
+				// $('a').removeAttr('target');
+
+				//you can add another html tag to one already existing
+				//you can wrap each tag individually or put the outside tag covering all of them
+				// $('p').wrap('<h1>');
+				// $('p').wrapAll('<h1>');
+
+				//after i click enter i want to make the text of the input be appended to the list when i press ENTER -added to the end
+				// $('#item').keyup(function(e){
+				// 	var code = e.which;
+				// 	if(code == 13){
+				// 		$('ul').append('<li>'+ e.target.value+'</li>');
+				// 	}
+				// });
+
+				//using array's
+				// var myArr = ['Brad','Cookie','Good','Arya'];
+
+				// //to loop an array
+				// $.each(myArr,function(i,val){
+				// 	// console.log(val);
+				// 	//to show on the DOM
+				// 	$('#array').append('<li>'+val+'</li>');
+				// });
+
+				//put the list itens inside an array
+				// var newArray = $('ul#list').toArray();
+				// $.each(newArray,function(i,val){
+				// 	// console.log(val);
+				// 	//to show on the DOM
+				// 	$('#array').append('<li>'+val.innerHTML+'</li>');
+				// });
+
+			});
+		</script>
+	</body>
+</html>

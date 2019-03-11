@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Jquery Crash Course Treversy - Ajax</title>
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>	
+		<style type="text/css">
+			body{
+				font-size: 17px;
+				font-family: arial;
+				background:#f4f4f4;
+				line-height: 1.5em;
+			}
+			header{
+				background: #333;
+				color: #fff;
+				padding: 20px;
+				text-align: center;
+				border-bottom: 4px #000 solid;
+				margin-bottom: 10px;
+			}
+			#container{
+				width: 90%;
+				margin: auto;
+				padding: 10px;
+			}
+			
+			
+
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Jquery Crash Course</h1>
+		</header>
+		<div id="container">
+			<div id="result"></div>
+			<ul id="users"></ul>
+			<h3>Add Post</h3>
+			<form id="form" action="https://jsonplaceholder.typicode.com/posts">
+				<input type="text" id="title" placeholder="Title"><br><br>
+				<textarea placeholder="Body" id="body"></textarea><br><br>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+
+		<script>
+			//below: it will only load the jquery after the page is all loaded
+			//start using ajax
+			$(document).ready(function(){
+				//get the message from the test file to the result div
+				//it will reload by itself without nedding to refresh the page
+				//the only part that will reload is the div
+				// $('#result').load('test.html');
+
+				//if we want to check the response or if there is an error you can do something
+				// $('#result').load('test.html', function(responseTxt,statusTxt, xhr){
+				// 	if(statusTxt=='success'){
+				// 		alert('worked');
+				// 	} else if(statusTxt == 'error'){
+				// 		alert('Error: '+xhr.statusTxt);
+				// 	}
+				// });
+
+				//GET Method, a little different
+				// $.get('test.html',function(data){
+				// 	$('#result').html(data);
+				// })
+
+				//getting a json content
+				//parameters: location of the file, function
+				//lets loop through the objects of the json and show on the list
+				// $.getJSON('users.json',function(data){
+				// 	$.each(data,function(i,users){
+				// 		$('ul#users').append('<li>'+users.firstName+'</li>');
+				// 	});
+				// });
+
+				//we can use apis from other places other than local files
+				//using the ajax method, is the most flexible method
+				// create an object, passing the method(default is GET method),
+				//the url that you are using, the data type of the return
+				//after is done it will call another function
+				//Translate all items in an array or object to new array of items.
+				//EX:
+				// The following object masquerades as an array.
+				// var fakeArray = { "length": 2, 0: "Addy", 1: "Subtracty" };
+				 
+				// // Therefore, convert it to a real array
+				// var realArray = $.makeArray( fakeArray )
+				 
+				// // Now it can be used reliably with $.map()
+				// $.map( realArray, function( val, i ) {
+				//   // Do something
+				// });
+
+
+				// $.ajax({
+				// 	method:'GET',
+				// 	url:'https://jsonplaceholder.typicode.com/posts',
+				// 	dataType:'json'
+				// }).done(function(data){
+				// 	$.map(data,function(post, i){
+				// 		$('#result').append('<h3>'+post.title+'</h3><p>'+post.body+'</p>');
+				// 	});
+				// });
+
+				//posting something on the api url used above
+				$('#form').submit(function(e){
+					e.preventDefault();
+					//grab the title and the body
+					var title = $('#title').val();
+					var body = $('#body').val();
+					//grab the url used on the action
+					var url = $(this).attr('action');
+
+					//using the post function with jquery and ajax
+					//parameters: url, values you want to send
+					$.post(url,{title:title,body:body}).done(function(data){
+						console.log('Post Saved');
+						console.log(data);
+					});
+				});
+
+			});
+		</script>
+	</body>
+</html>
